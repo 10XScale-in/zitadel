@@ -50,7 +50,14 @@ export default async function Page(props: { searchParams: Promise<Record<string 
 
   return (
     <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-4 slide-up">
+        <div className="flex justify-center mb-2">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-light-500 to-blue-500 dark:from-primary-dark-400 dark:to-blue-400 flex items-center justify-center shadow-lg">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+            </svg>
+          </div>
+        </div>
         <h1>
           <Translated i18nKey="title" namespace="loginname" />
         </h1>
@@ -59,11 +66,11 @@ export default async function Page(props: { searchParams: Promise<Record<string 
         </p>
       </div>
 
-      <div className="w-full">
+      <div className="w-full fade-in">
         <UsernameForm
           loginName={loginName}
           requestId={requestId}
-          organization={organization} // stick to "organization" as we still want to do user discovery based on the searchParams not the default organization, later the organization is determined by the found user
+          organization={organization}
           loginSettings={contextLoginSettings}
           suffix={suffix}
           submit={submit}
@@ -72,6 +79,9 @@ export default async function Page(props: { searchParams: Promise<Record<string 
 
         {loginSettings?.allowExternalIdp && !!identityProviders?.length && (
           <div className="w-full pb-4 pt-6">
+            <div className="divider-with-text">
+              <span>or continue with</span>
+            </div>
             <SignInWithIdp
               identityProviders={identityProviders}
               requestId={requestId}

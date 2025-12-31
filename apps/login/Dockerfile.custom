@@ -1,0 +1,22 @@
+FROM node:22-alpine AS base
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Set working directory
+WORKDIR /app
+
+# Copy the standalone build
+COPY .next/standalone ./
+COPY public ./apps/login/public
+COPY .next/static ./apps/login/.next/static
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+
+WORKDIR /app/apps/login
+
+EXPOSE 3000
+
+CMD ["node", "server.js"]

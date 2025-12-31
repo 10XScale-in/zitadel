@@ -74,7 +74,14 @@ export default async function Page(props: { searchParams: Promise<Record<string 
 
   return (
     <DynamicTheme branding={branding}>
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-4 slide-up">
+        <div className="flex justify-center mb-2">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-light-500 to-purple-500 dark:from-primary-dark-400 dark:to-purple-400 flex items-center justify-center shadow-lg">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            </svg>
+          </div>
+        </div>
         <h1>
           <Translated i18nKey="title" namespace="register" />
         </h1>
@@ -83,7 +90,7 @@ export default async function Page(props: { searchParams: Promise<Record<string 
         </p>
       </div>
 
-      <div className="w-full">
+      <div className="w-full fade-in">
         {!organization && (
           <Alert>
             <Translated i18nKey="unknownContext" namespace="error" />
@@ -108,6 +115,9 @@ export default async function Page(props: { searchParams: Promise<Record<string 
 
         {loginSettings?.allowExternalIdp && !!identityProviders.length && (
           <>
+            <div className="divider-with-text">
+              <span>or continue with</span>
+            </div>
             <SignInWithIdp
               identityProviders={identityProviders}
               requestId={requestId}
