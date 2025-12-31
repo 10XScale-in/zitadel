@@ -33,7 +33,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@netlify/build-info": "^10.0.7",
     "@ng-icons/core": "^32.1.0",
-    "@ng-icons/heroicons": "^32.1.0",
+    "@ng-icons/heroicons": "^33.0.0",
     "@ngx-translate/core": "^17.0.0",
     "@tanstack/angular-query-experimental": "^5.85.6",
     "angular-oauth2-oidc": "^20.0.2",
