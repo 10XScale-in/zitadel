@@ -216,7 +216,7 @@
         "description": "Einige Daten fehlen. Bitte überprüfen Sie Ihre Eingaben."
       },
       "title": "Registrieren",
-      "description": "Erstellen Sie Ihr ZITADEL-Konto.",
+      "description": "Erstellen Sie Ihr 10XScale-Konto.",
       "noMethodAvailableWarning": "Keine Authentifizierungsmethode verfügbar. Bitte wenden Sie sich an den Administrator.",
       "selectMethod": "Wählen Sie die Methode, mit der Sie sich authentifizieren möchten",
       "agreeTo": "Um sich zu registrieren, müssen Sie den Nutzungsbedingungen zustimmen",
@@ -549,7 +549,7 @@
         "description": "Provide email, first and last name to register."
       },
       "title": "Register",
-      "description": "Create your ZITADEL account.",
+      "description": "Create your 10XScale account.",
       "noMethodAvailableWarning": "No authentication method available. Please contact your administrator.",
       "selectMethod": "Select the method you would like to authenticate",
       "agreeTo": "To register you must agree to the terms and conditions",
@@ -882,7 +882,7 @@
         "description": "No se proporcionaron datos suficientes para el registro."
       },
       "title": "Registrarse",
-      "description": "Crea tu cuenta ZITADEL.",
+      "description": "Crea tu cuenta 10XScale.",
       "noMethodAvailableWarning": "No hay métodos de autenticación disponibles. Por favor, contacta a tu administrador.",
       "selectMethod": "Selecciona el método con el que deseas autenticarte",
       "agreeTo": "Para registrarte debes aceptar los términos y condiciones",
@@ -1215,7 +1215,7 @@
         "description": "Inserisci i tuoi dati per registrarti."
       },
       "title": "Registrati",
-      "description": "Crea il tuo account ZITADEL.",
+      "description": "Crea il tuo account 10XScale.",
       "noMethodAvailableWarning": "Nessun metodo di autenticazione disponibile. Contatta l'amministratore di sistema per assistenza.",
       "selectMethod": "Seleziona il metodo con cui desideri autenticarti",
       "agreeTo": "Per registrarti devi accettare i termini e le condizioni",
@@ -1646,7 +1646,7 @@
         "description": "Geef e-mail, voornaam en achternaam op om te registreren."
       },
       "title": "Registreren",
-      "description": "Maak jouw ZITADEL-account aan.",
+      "description": "Maak jouw 10XScale-account aan.",
       "noMethodAvailableWarning": "Geen authenticatiemethode beschikbaar. Neem contact op met jouw beheerder.",
       "selectMethod": "Selecteer de methode waarmee u wilt verifiëren",
       "agreeTo": "Om te registreren moet u akkoord gaan met de voorwaarden",
