@@ -54,7 +54,6 @@ services:
       - ZITADEL_API_URL=http://localhost:8080
       - NEXT_PUBLIC_BASE_PATH=/ui/v2/login
       - ZITADEL_SERVICE_USER_TOKEN_FILE=/current-dir/login-client.pat
-      - ZITADEL_SERVICE_USER_TOKEN=is155XL8kGFVdSC9HGO5SNki78J4yncJKmlfkY6ffuINm9VnBMkKMUXUk4w9Rmz2nOu-LdQ
     network_mode: service:zitadel
     user: "0"
     volumes:
@@ -88,6 +87,33 @@ services:
       - 5433:5432
     volumes:
       - 'data:/var/lib/postgresql/data:rw'
+
+  session-webhook:
+    build:
+      context: ../../../session-webhook
+      dockerfile: Dockerfile
+    container_name: session-webhook
+    restart: unless-stopped
+    networks:
+      - zitadel
+    extra_hosts:
+      - "localhost:host-gateway"
+    environment:
+      - INSTANCE_URL=http://localhost:8080
+      - PAT=${SESSION_WEBHOOK_PAT}
+      - CONCURRENT_SESSIONS=${SESSION_LIMIT:-2}
+      - SIGNING_KEY=${SESSION_WEBHOOK_SIGNING_KEY}
+      - PORT=3001
+    ports:
+      - 3001:3001
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      zitadel:
+        condition: service_healthy
 
 networks:
   zitadel:
