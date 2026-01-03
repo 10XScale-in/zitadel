@@ -88,33 +88,6 @@ services:
     volumes:
       - 'data:/var/lib/postgresql/data:rw'
 
-  # session-webhook:
-  #   build:
-  #     context: ../../../session-webhook
-  #     dockerfile: Dockerfile
-  #   container_name: session-webhook
-  #   restart: unless-stopped
-  #   networks:
-  #     - zitadel
-  #   extra_hosts:
-  #     - "localhost:host-gateway"
-  #   environment:
-  #     - INSTANCE_URL=http://localhost:8080
-  #     - PAT=${SESSION_WEBHOOK_PAT}
-  #     - CONCURRENT_SESSIONS=${SESSION_LIMIT:-2}
-  #     - SIGNING_KEY=${SESSION_WEBHOOK_SIGNING_KEY}
-  #     - PORT=3001
-  #   ports:
-  #     - 3001:3001
-  #   healthcheck:
-  #     test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/health"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 3
-  #   depends_on:
-  #     zitadel:
-  #       condition: service_healthy
-
 networks:
   zitadel:
 
