@@ -1,0 +1,27 @@
+services: 
+  session-webhook:
+    image: us-central1-docker.pkg.dev/eco-seeker-458712-i8/trainings10x-prod/session-webhook:v1.0.0
+    container_name: session-webhook
+    restart: unless-stopped
+    networks:
+      - zitadel
+    extra_hosts:
+      - "localhost:host-gateway"
+    environment:
+      - INSTANCE_URL=http://localhost:8080
+      - PAT=${SESSION_WEBHOOK_PAT}
+      - CONCURRENT_SESSIONS=${SESSION_LIMIT:-2}
+      - SIGNING_KEY=${SESSION_WEBHOOK_SIGNING_KEY}
+      - PORT=3001
+    ports:
+      - 3001:3001
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  zitadel:
+    external: true
+    name: zitadel_zitadel
